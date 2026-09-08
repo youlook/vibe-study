@@ -27,6 +27,7 @@ export default function Sidebar() {
 
   const conceptActive = pathname === '/codex';
   const projectsActive = pathname === '/codex/projects';
+  const workflowActive = pathname === '/codex/workflow';
 
   return <aside className={`course-sidebar ${expanded ? 'is-expanded' : 'is-collapsed'}`}>
     <div className="sidebar-top">
@@ -48,6 +49,7 @@ export default function Sidebar() {
         {expanded && <div className="sub-menu">
           <Link href="/codex" className={conceptActive ? 'active' : ''} aria-current={conceptActive ? 'page' : undefined}><span>01</span>AGENTS.md 개념</Link>
           <Link href="/codex/projects" className={projectsActive ? 'active' : ''} aria-current={projectsActive ? 'page' : undefined}><span>02</span>프로젝트 예시</Link>
+          <Link href="/codex/workflowActive" className={workflowActive ? 'active' : ''} aria-current={workflowActive ? 'page' : undefined}><span>02</span>프로젝트 예시 tt</Link>
         </div>}
       </div>
     </nav>
