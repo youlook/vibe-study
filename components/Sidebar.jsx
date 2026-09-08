@@ -49,7 +49,7 @@ export default function Sidebar() {
         {expanded && <div className="sub-menu">
           <Link href="/codex" className={conceptActive ? 'active' : ''} aria-current={conceptActive ? 'page' : undefined}><span>01</span>AGENTS.md 개념</Link>
           <Link href="/codex/projects" className={projectsActive ? 'active' : ''} aria-current={projectsActive ? 'page' : undefined}><span>02</span>프로젝트 예시</Link>
-          <Link href="/codex/workflowActive" className={workflowActive ? 'active' : ''} aria-current={workflowActive ? 'page' : undefined}><span>02</span>프로젝트 예시 tt</Link>
+          <Link href="/codex/workflow" className={workflowActive ? 'active' : ''} aria-current={workflowActive ? 'page' : undefined}><span>02</span>프로젝트 예시 tt</Link>
         </div>}
       </div>
     </nav>
