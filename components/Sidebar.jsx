@@ -8,6 +8,10 @@ function CodexIcon() {
   return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8.1 3.6a7.8 7.8 0 0 1 11.2 4.8m-3.4 12a7.8 7.8 0 0 1-11.2-4.8M4.7 8.4A7.8 7.8 0 0 1 16 3.6m3.3 12A7.8 7.8 0 0 1 8 20.4M4.2 15.6A7.8 7.8 0 0 1 4.7 8.4m14.6 0a7.8 7.8 0 0 1 .5 7.2M8.2 8.7l3.8-2.2 3.8 2.2v4.5L12 15.5l-3.8-2.3Z"/></svg>;
 }
 
+function HomeIcon() {
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 10 8-7 8 7v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Zm5 11v-7h6v7"/></svg>;
+}
+
 export default function Sidebar() {
   const pathname = usePathname();
   const [expanded, setExpanded] = useState(true);
@@ -28,10 +32,11 @@ export default function Sidebar() {
   const conceptActive = pathname === '/codex';
   const projectsActive = pathname === '/codex/projects';
   const workflowActive = pathname === '/codex/workflow';
+  const homeActive = pathname === '/';
 
   return <aside className={`course-sidebar ${expanded ? 'is-expanded' : 'is-collapsed'}`}>
     <div className="sidebar-top">
-      <Link href="/codex" className="sidebar-brand" aria-label="Vibe Study 홈">
+      <Link href="/" className="sidebar-brand" aria-label="Vibe Study 홈">
         <span className="brand-mark">V</span>
         {expanded && <span className="brand-copy">vibe<strong>study</strong><small>개발 학습 노트</small></span>}
       </Link>
@@ -41,19 +46,23 @@ export default function Sidebar() {
     </div>
 
     <nav className="sidebar-nav" aria-label="강의 메뉴">
+      <Link href="/" className={`nav-parent nav-home ${homeActive ? 'active' : ''}`} aria-current={homeActive ? 'page' : undefined} title={expanded ? undefined : '구성 지침서'}>
+        <span className="nav-icon"><HomeIcon /></span>
+        {expanded && <span>구성 지침서</span>}
+      </Link>
       <div className={`nav-group ${pathname.startsWith('/codex') ? 'group-active' : ''}`}>
         <Link href="/codex" className="nav-parent" title={expanded ? undefined : 'Codex'}>
           <span className="nav-icon"><CodexIcon /></span>
           {expanded && <><span>Codex</span><span className="nav-chevron">⌄</span></>}
         </Link>
         {expanded && <div className="sub-menu">
-          <Link href="/codex" className={conceptActive ? 'active' : ''} aria-current={conceptActive ? 'page' : undefined}><span>01</span>AGENTS.md 개념</Link>
+          <Link href="/codex" className={conceptActive ? 'active' : ''} aria-current={conceptActive ? 'page' : undefined}><span>01</span>AGENTS.md 구성</Link>
           <Link href="/codex/projects" className={projectsActive ? 'active' : ''} aria-current={projectsActive ? 'page' : undefined}><span>02</span>프로젝트 예시</Link>
-          <Link href="/codex/workflow" className={workflowActive ? 'active' : ''} aria-current={workflowActive ? 'page' : undefined}><span>02</span>프로젝트 예시 tt</Link>
+          <Link href="/codex/workflow" className={workflowActive ? 'active' : ''} aria-current={workflowActive ? 'page' : undefined}><span>03</span>작업 흐름</Link>
         </div>}
       </div>
     </nav>
 
-    {expanded && <div className="sidebar-foot">공통 규칙과 프로젝트 규칙을<br/>한 단계씩 정리합니다.</div>}
+    {expanded && <div className="sidebar-foot">바이브코드 프로젝트 구성을<br/>한 단계씩 정리합니다.</div>}
   </aside>;
 }

@@ -106,7 +106,7 @@
   gap: 18px;
 }
 
-.sidebar-nav { margin-top: 46px; }
+.sidebar-nav { display: grid; gap: 9px; margin-top: 46px; }
 .nav-group { border-radius: 12px; }
 
 .nav-parent {
@@ -121,6 +121,9 @@
 }
 
 .group-active .nav-parent { color: #fff; }
+.nav-home { color: #90aaa3; }
+.nav-home:hover { color: #fff; background: #192d2a; }
+.nav-home.active { color: #fff; background: #24443d; box-shadow: inset 3px 0 #43c8a2; }
 .nav-icon {
   display: grid;
   flex: none;
@@ -205,6 +208,25 @@
   padding: 58px 48px 32px;
 }
 
+.guide-home { padding-top: 72px; }
+.guide-intro { display: grid; grid-template-columns: 1.6fr .8fr; gap: 70px; align-items: end; margin: 25px 0 58px; }
+.guide-intro h1 { font-size: clamp(44px, 6vw, 76px); line-height: 1.12; }
+.guide-intro p { margin: 28px 0 0; color: var(--muted); font-size: 17px; line-height: 1.9; }
+.guide-principle { padding: 25px 0 9px 28px; border-left: 3px solid var(--accent); }
+.guide-principle span { display: block; margin-bottom: 16px; color: var(--accent); font-size: 13px; font-weight: 700; }
+.guide-principle strong { font-size: 22px; line-height: 1.65; }
+.guide-list { border-top: 2px solid var(--ink); }
+.guide-list article { display: grid; grid-template-columns: 58px 190px 1fr; gap: 20px; align-items: center; padding: 27px 10px; border-bottom: 1px solid var(--line); }
+.guide-list article > span { color: var(--accent); font-size: 13px; font-weight: 700; }
+.guide-list h2 { font-size: 20px; }
+.guide-list p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.7; }
+.guide-start { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 30px; padding: 25px 28px; color: #e8f2ef; background: #1c2d2b; border-radius: 9px; }
+.guide-start div > span { color: #77b9a8; font-size: 12px; font-weight: 700; }
+.guide-start h2 { margin-top: 7px; font-size: 20px; }
+.guide-start > a { padding: 13px 18px; color: #10211e; font-size: 14px; font-weight: 700; white-space: nowrap; background: #55c5a5; border-radius: 6px; }
+.guide-start > a:hover { background: #71dabd; }
+.guide-start > a span { margin-left: 20px; }
+
 @media (max-width: 650px) {
   .course-sidebar.is-expanded { width: 220px; }
   .course-sidebar.is-collapsed { width: 64px; }
@@ -214,4 +236,9 @@
   .site-content footer { margin-inline: 22px; }
   .sub-menu { margin-left: 25px; padding-left: 8px; }
   .sub-menu a { padding-inline: 7px; font-size: 13px; }
+  .guide-intro { grid-template-columns: 1fr; gap: 32px; margin-bottom: 40px; }
+  .guide-intro h1 { font-size: 42px; }
+  .guide-list article { grid-template-columns: 36px 1fr; }
+  .guide-list article p { grid-column: 2; }
+  .guide-start { align-items: flex-start; flex-direction: column; }
 }
